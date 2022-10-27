@@ -12,7 +12,7 @@ schedules:
       - main
 
 jobs:
-- job: Update_cctbx-xfel_source
+- job: Update_cctbx_xfel_source
   pool:
     vmImage: ubuntu-latest
   timeoutInMinutes: 120
