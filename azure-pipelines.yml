@@ -1,0 +1,92 @@
+# Build xfel source tarball
+
+# no pull requests, but do trigger on a push
+pr: none
+
+jobs:
+- job: Build_xfel_source_tarball
+  pool:
+    vmImage: ubuntu-latest
+  timeoutInMinutes: 360
+
+  # variables for version
+  variables:
+  - name: year
+    value: $(Get-Date -Format yyyy)
+  - name: month
+    value: $(Get-Date -Format MM)
+  - name: day
+    value: $(Get-Date -Format dd)
+  - name: version
+    value: $(year).$(month).a$(day)
+  # variable for secrets
+  # - group: ENV_GROUP
+
+  steps:
+
+  # ubuntu setup
+  - script: |
+      sudo apt-get install -y build-essential curl git libgl1-mesa-dev libglu1-mesa-dev locales subversion
+      sudo locale-gen en_US.UTF-8
+      sudo update-locale
+    displayName: Install dependencies for Ubuntu
+
+  # set version
+  - powershell: |
+      $trimmed_month = $(month).TrimStart("0")
+      $trimmed_day = $(day).TrimStart("0")
+      Write-Host $trimmed_month
+      Write-Host $trimmed_day
+      Write-Host "##vso[task.setVariable variable=year]$(year)"
+      Write-Host "##vso[task.setVariable variable=month]$trimmed_month"
+      Write-Host "##vso[task.setVariable variable=day]$trimmed_day"
+      Write-Host $(year)
+      Write-Host $(month)
+      Write-Host $(day)
+    displayName: Set variables from date
+
+  - script: |
+      version=$(year).$(month).$(day)
+      echo "##vso[task.setVariable variable=version]$version"
+      echo $(version)
+    displayName: Set version
+
+  - script: |
+      set -xe
+      release=`echo $(Build.SourceBranch) | sed 's/refs\/heads\/releases\///'`
+      echo "##vso[task.setVariable variable=version]$release"
+      echo $(version)
+    displayName: Override version for release branch
+    condition: startswith(variables['Build.SourceBranch'], 'refs/heads/releases/')
+
+  # add conda to path
+  # https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/anaconda?view=azure-devops&tabs=ubuntu-16-04#add-conda-to-your-system-path
+  - bash: echo "##vso[task.prependpath]$CONDA/bin"
+    displayName: Add conda to PATH
+
+  # download sources
+  - checkout: self
+    submodules: recursive
+    lfs: true
+
+  # link bootstrap.py
+  - script: |
+      set -xe
+      cd $(Pipeline.Workspace)
+      wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/libtbx/auto_build/bootstrap.py
+    displayName: Download bootstrap.py
+
+  # preserve permissions and delete extra files
+  - script: |
+      cd $(Pipeline.Workspace)
+      rm -fr modules/*/.git/*
+      rm -fr modules/*/.svn/*
+      rm -fr modules/*.tar
+      mkdir xfel_source
+      mv modules xfel_source
+      tar -cf xfel_source.tar xfel_source
+    displayName: Build tarball
+
+  # publish artifact
+  - publish: $(Pipeline.Workspace)/xfel_source.tar
+    artifact: xfel_modules
