@@ -1,3 +1,48 @@
 [submodule "modules/cctbx_project"]
 	path = modules/cctbx_project
 	url = https://github.com/cctbx/cctbx_project.git
+[submodule "modules/tntbx"]
+	path = modules/tntbx
+	url = https://github.com/cctbx/tntbx.git
+[submodule "modules/annlib"]
+	path = modules/annlib
+	url = https://github.com/cctbx/annlib.git
+[submodule "modules/annlib_adaptbx"]
+	path = modules/annlib_adaptbx
+	url = https://github.com/cctbx/annlib_adaptbx.git
+[submodule "modules/ccp4io"]
+	path = modules/ccp4io
+	url = https://github.com/cctbx/ccp4io.git
+[submodule "modules/ccp4io_adaptbx"]
+	path = modules/ccp4io_adaptbx
+	url = https://github.com/cctbx/ccp4io_adaptbx.git
+[submodule "modules/clipper"]
+	path = modules/clipper
+	url = https://github.com/cctbx/clipper.git
+[submodule "modules/gui_resources"]
+	path = modules/gui_resources
+	url = https://github.com/cctbx/gui_resources.git
+[submodule "modules/cbflib"]
+	path = modules/cbflib
+	url = https://github.com/yayahjb/cbflib.git
+[submodule "modules/dxtbx"]
+	path = modules/dxtbx
+	url = https://github.com/cctbx/dxtbx.git
+[submodule "modules/dials"]
+	path = modules/dials
+	url = https://github.com/dials/dials.git
+[submodule "modules/iota"]
+	path = modules/iota
+	url = https://github.com/ssrl-px/iota.git
+[submodule "modules/uc_metrics"]
+	path = modules/uc_metrics
+	url = https://gitlab.com/cctbx/uc_metrics.git
+[submodule "modules/ncdist"]
+	path = modules/ncdist
+	url = https://github.com/yayahjb/ncdist.git
+[submodule "modules/kokkos"]
+	path = modules/kokkos
+	url = https://github.com/kokkos/kokkos.git
+[submodule "modules/kokkos-kernels"]
+	path = modules/kokkos-kernels
+	url = https://github.com/kokkos/kokkos-kernels.git
