@@ -1,51 +1,68 @@
 [submodule "modules/cctbx_project"]
 	path = modules/cctbx_project
+        branch = master
 	url = https://github.com/cctbx/cctbx_project.git
 [submodule "modules/tntbx"]
 	path = modules/tntbx
+        branch = master
 	url = https://github.com/cctbx/tntbx.git
 [submodule "modules/annlib"]
 	path = modules/annlib
+        branch = master
 	url = https://github.com/cctbx/annlib.git
 [submodule "modules/annlib_adaptbx"]
 	path = modules/annlib_adaptbx
+        branch = master
 	url = https://github.com/cctbx/annlib_adaptbx.git
 [submodule "modules/ccp4io"]
 	path = modules/ccp4io
+        branch = master
 	url = https://github.com/cctbx/ccp4io.git
 [submodule "modules/ccp4io_adaptbx"]
 	path = modules/ccp4io_adaptbx
+        branch = master
 	url = https://github.com/cctbx/ccp4io_adaptbx.git
 [submodule "modules/clipper"]
 	path = modules/clipper
+        branch = master
 	url = https://github.com/cctbx/clipper.git
 [submodule "modules/gui_resources"]
 	path = modules/gui_resources
+        branch = master
 	url = https://github.com/cctbx/gui_resources.git
 [submodule "modules/cbflib"]
 	path = modules/cbflib
+        branch = main
 	url = https://github.com/yayahjb/cbflib.git
 [submodule "modules/dxtbx"]
 	path = modules/dxtbx
+        branch = main
 	url = https://github.com/cctbx/dxtbx.git
 [submodule "modules/dials"]
 	path = modules/dials
+        branch = main
 	url = https://github.com/dials/dials.git
 [submodule "modules/iota"]
 	path = modules/iota
+        branch = master
 	url = https://github.com/ssrl-px/iota.git
 [submodule "modules/uc_metrics"]
 	path = modules/uc_metrics
+        branch = master
 	url = https://gitlab.com/cctbx/uc_metrics.git
 [submodule "modules/ncdist"]
 	path = modules/ncdist
+        branch = main
 	url = https://github.com/yayahjb/ncdist.git
 [submodule "modules/kokkos"]
 	path = modules/kokkos
+        branch = master
 	url = https://github.com/kokkos/kokkos.git
 [submodule "modules/kokkos-kernels"]
 	path = modules/kokkos-kernels
+        branch = master
 	url = https://github.com/kokkos/kokkos-kernels.git
 [submodule "modules/xia2"]
 	path = modules/xia2
+        branch = main
 	url = https://github.com/xia2/xia2.git
