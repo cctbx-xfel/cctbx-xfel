@@ -46,3 +46,6 @@
 [submodule "modules/kokkos-kernels"]
 	path = modules/kokkos-kernels
 	url = https://github.com/kokkos/kokkos-kernels.git
+[submodule "modules/xia2"]
+	path = modules/xia2
+	url = https://github.com/xia2/xia2.git
