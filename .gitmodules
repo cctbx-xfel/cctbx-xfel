@@ -24,7 +24,7 @@
 	url = https://github.com/cctbx/gui_resources.git
 [submodule "modules/cbflib"]
 	path = modules/cbflib
-	url = https://github.com/yayahjb/cbflib.git
+	url = https://github.com/dials/cbflib.git
 [submodule "modules/dxtbx"]
 	path = modules/dxtbx
 	url = https://github.com/cctbx/dxtbx.git
