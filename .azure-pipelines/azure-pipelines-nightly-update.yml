@@ -65,6 +65,7 @@ jobs:
 
       git config user.name "Aaron Brewster"
       git config user.email "asbrewster@lbl.gov"
+      git fetch
       git checkout main
 
       cd modules
