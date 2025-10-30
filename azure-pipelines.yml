@@ -69,24 +69,14 @@ jobs:
     submodules: recursive
     lfs: true
 
-  # link bootstrap.py
-  - script: |
-      set -xe
-      cd $(Pipeline.Workspace)
-      wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/libtbx/auto_build/bootstrap.py
-    displayName: Download bootstrap.py
-
   # preserve permissions and delete extra files
   - script: |
-      cd $(Pipeline.Workspace)
       rm -fr modules/*/.git/*
       rm -fr modules/*/.svn/*
       rm -fr modules/*.tar
-      mkdir xfel_source
-      mv modules xfel_source
-      tar -cf xfel_source.tar xfel_source
+      tar -czf xfel_source.tar.gz modules
     displayName: Build tarball
 
   # publish artifact
-  - publish: $(Pipeline.Workspace)/xfel_source.tar
+  - publish: xfel_source.tar.gz
     artifact: xfel_modules
