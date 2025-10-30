@@ -65,6 +65,7 @@ jobs:
 
       git config user.name "Aaron Brewster"
       git config user.email "asbrewster@lbl.gov"
+      git checkout main
 
       cd modules
       for module in annlib annlib_adaptbx ccp4io ccp4io_adaptbx \
@@ -91,7 +92,7 @@ jobs:
       done
 
       git commit -am "Update for v$(version)"
-      git push -f -u origin main
+      git push -u origin main
     displayName: Update sources
     continueOnError: true
 
